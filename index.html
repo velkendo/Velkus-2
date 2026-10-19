@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudentSphere | Student Management Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="StudentSphere home"><span class="brand-mark">S</span><span>StudentSphere</span></a>
+      <span class="top-note">STUDENT INFORMATION PORTAL</span>
+    </header>
+
+    <!-- AUTHENTICATION VIEW -->
+    <main id="auth-view" class="auth-layout">
+      <section class="hero">
+        <div class="eyebrow">ONE PORTAL. EVERY MILESTONE.</div>
+        <h1>Your education,<br><span>beautifully organised.</span></h1>
+        <p>Keep your academic journey, attendance, progress and profile details in one place.</p>
+        <div class="hero-points">
+          <div><span class="point-icon">✓</span> Personal student dashboard</div>
+          <div><span class="point-icon">✓</span> Academic progress at a glance</div>
+          <div><span class="point-icon">✓</span> A permanent student identity</div>
+        </div>
+        <div class="hero-decoration">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="orb-card">
+            <span>YOUR JOURNEY</span>
+            <strong>Learn. Grow. Achieve.</strong>
+            <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div class="mobile-mark">S</div>
+          <div class="eyebrow">WELCOME TO STUDENTSPHERE</div>
+          <h2 id="auth-title">Sign in to your account</h2>
+          <p id="auth-subtitle" class="muted">Enter your details to continue to your portal.</p>
+          
+          <div class="tabs">
+            <button class="tab active" id="login-tab" type="button">Sign In</button>
+            <button class="tab" id="signup-tab" type="button">Create Account</button>
+          </div>
+
+          <form id="auth-form">
+            <div id="name-field" class="field hidden">
+              <label for="fullName">Full name</label>
+              <input id="fullName" autocomplete="name" placeholder="e.g. Aanya Sharma">
+            </div>
+
+            <div id="role-field" class="field hidden">
+              <label for="accountRole">Account Type</label>
+              <select id="accountRole">
+                <option value="student">Student Account</option>
+                <option value="admin">Admin / Faculty Account</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="identity">Student / Admin ID or email</label>
+              <input id="identity" autocomplete="username" placeholder="Enter your ID or email" required>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="4">
+            </div>
+
+            <div id="extra-signup" class="hidden">
+              <div class="field">
+                <label for="course">Course</label>
+                <select id="course">
+                  <option>B.Tech Information Technology</option>
+                  <option>Bachelor of Computer Applications</option>
+                  <option>B.Com</option>
+                  <option>B.Sc Computer Science</option>
+                  <option>BBA</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="year">Academic year</label>
+                <select id="year">
+                  <option>First Year</option>
+                  <option>Second Year</option>
+                  <option>Third Year</option>
+                  <option>Fourth Year</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="primary-btn" id="auth-submit" type="submit">Sign In <span>→</span></button>
+            <p id="auth-message" class="message" role="status"></p>
+          </form>
+
+          <div class="demo-box">
+            <div class="demo-title"><span>✦</span> TRY THE DEMO</div>
+            <p>Click a demo button below to fill credentials, then click Sign In.</p>
+            <div class="demo-actions">
+              <button type="button" class="demo-btn" data-demo="student">Fill Student Demo</button>
+              <button type="button" class="demo-btn" data-demo="admin">Fill Admin Demo</button>
+            </div>
+            <small>Student: STU20260001 / student123<br>Admin: ADMIN001 / admin123</small>
+          </div>
+          <p class="fine-print">Demo project · Use fictional information only</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- MAIN DASHBOARD VIEW -->
+    <main id="dashboard-view" class="dashboard hidden">
+      <aside class="sidebar">
+        <a class="brand side-brand" href="#"><span class="brand-mark">S</span><span>StudentSphere</span></a>
+        <div class="side-label">WORKSPACE</div>
+        <button class="nav-item active" data-section="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-section="profile"><span>♙</span> Personal Profile</button>
+        <button class="nav-item" data-section="academics"><span>▤</span> Academic Details</button>
+        <button class="nav-item" data-section="attendance"><span>◷</span> Attendance</button>
+        <button class="nav-item admin-only hidden" data-section="manage"><span>☷</span> Manage Students</button>
+        
+        <div class="sidebar-bottom">
+          <div class="side-avatar" id="side-avatar">A</div>
+          <div class="side-user">
+            <strong id="side-name">User Name</strong>
+            <span id="side-role">Role</span>
+          </div>
+          <button id="logout-btn" class="logout" title="Sign out" aria-label="Sign out">↪</button>
+        </div>
+      </aside>
+
+      <section class="main-area">
+        <header class="dash-header">
+          <div>
+            <div class="eyebrow" id="welcome-label">STUDENT PORTAL</div>
+            <h1 id="page-title">Overview</h1>
+          </div>
+          <div class="header-user">
+            <span class="status-dot"></span>
+            <span id="header-user-name">User</span>
+            <div id="header-avatar" class="avatar">U</div>
+          </div>
+        </header>
+
+        <div id="dashboard-content"></div>
+        <footer class="footer-note">StudentSphere · Academic information, organised.</footer>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
